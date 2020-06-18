@@ -2,7 +2,21 @@ package rightWay;
 
 import java.util.Random;
 
-public class Die extends AbstractRollable {
+/**
+ * I represent a Die.
+ *
+ * A Die can be rolled and will return its result.
+ *
+ * I can be configured to know the number of faces I have.
+ *
+ * ========================
+ *
+ * Example:
+ *
+ *  Dice die = new Dice(8);
+ *  die.roll()
+ */
+public class Die extends Rollable {
 
     protected int value;
 
@@ -16,7 +30,8 @@ public class Die extends AbstractRollable {
     }
 
     @Override
-    public DiceHandle with(AbstractRollable rollable) {
+    public DiceHandle with(Rollable rollable) {
+        // I use double dispatch here by delegating to my parameter.
         return rollable.withDie(this);
     }
 

@@ -11,6 +11,10 @@ public class Main {
 
         System.out.println(Main.roll(die));
         System.out.println(Main.roll(handle));
+
+        DiceHandle handle2 = die.with(handle);
+        DiceHandle handle3 = die.with(die);
+        DiceHandle handle4 = handle.with(die);
     }
 
      public static int roll(Rollable rollable){
